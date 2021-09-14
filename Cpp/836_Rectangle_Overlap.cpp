@@ -1,14 +1,6 @@
 class Solution {
 public:
-    int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
-        int area1 = (C-A)*(D-B);
-        int area2 = (G-E)*(H-F);
-        int x_overlap = max(A, E) < min(C, G);
-        int y_overlap = max(B, F) < min(D, H);
-        if(x_overlap && y_overlap){
-            int area3 = (max(A, E)-min(C, G))*(max(B, F)-min(D, H));
-            return -area3 + area1 + area2;
-        }
-        return area1 + area2;
+    bool isRectangleOverlap(vector<int>& rec1, vector<int>& rec2) {
+        return max(rec1[0], rec2[0]) < min(rec1[2], rec2[2]) && max(rec1[1], rec2[1]) < min(rec1[3], rec2[3]);
     }
 };
