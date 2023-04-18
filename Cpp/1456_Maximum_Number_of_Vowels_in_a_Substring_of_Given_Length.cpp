@@ -7,10 +7,12 @@ public:
         for(int i = 0; i < k; ++i) {
             if(isVowel(s[i])) ++count;
         }
+        result = max(result, count);
 
-        for(int i = 0, j = k; j != s.size(); i++, j++){
-            if(isVowel(s[i])) --count;
-            if(isVowel(s[j])) ++count;
+        for(int i = k; i < s.size(); ++i) {
+            if(isVowel(s[i - k])) --count;
+            if(isVowel(s[i])) ++count;
+
             result = max(result, count);
         }
 
